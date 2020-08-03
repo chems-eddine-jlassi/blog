@@ -1,0 +1,50 @@
+<style>
+     body{
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            background-color: #fdfdfd;
+
+        }
+    
+    .form-site{
+    display: grid;
+    width: fit-content;
+    padding: 33px;
+    background-color: rgba(0,0,0,.03);
+    
+    margin-left: 10px;
+    box-shadow: 0 16px 48px #E3E7EB;
+    border: 1px solid  rgba(0,0,0,.125);
+    margin-top: 30px;
+    border-radius: 10px;
+   
+}
+
+
+.form-site label{
+        font-family: cursive;
+        margin-top: 4px;
+}
+    
+</style>
+
+
+
+
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+<form class="form-site col-md-6" method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <div class="row" >
+    <input class="btn btn-success btn-block btn-sm" style="width: 100px;margin-top: 50px;"  type='submit' value='Save' /> 
+    <a href="{% url 'home' %}" class="btn btn-secondary btn-block btn-sm" style="width: 100px;margin: auto;margin-top: 50px;">cancel</a>
+</div></form>
+
+{% block sidebar %} {% include 'blog/sidebar.html' %} {% endblock sidebar %}
+</div>
+</div>
+
+{% endblock %}

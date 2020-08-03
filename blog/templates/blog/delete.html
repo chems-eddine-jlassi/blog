@@ -1,0 +1,38 @@
+<style>
+    .form-site {
+        display: grid;
+
+        padding: 33px;
+        background-color: rgba(0, 0, 0, .03);
+
+        margin-left: 150px;
+        box-shadow: 0 16px 48px #E3E7EB;
+        border: 1px solid rgba(0, 0, 0, .125);
+        margin-top: 30px;
+
+
+    }
+</style>
+
+{% extends 'blog/base.html' %}
+{% block content %}
+
+
+<div class="center-column">
+
+
+    <form class="form-site col-md-3" method="POST" action="">
+        <p>Are you sure you want to delete "{{post}}",?</p>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" name="Confirm" class="btn btn-success btn-block btn-sm">Delete</button>
+            </div>
+            <div class=" col-md-3">
+                <a href="{% url 'home' %}" class="btn btn-secondary btn-block btn-sm">cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
